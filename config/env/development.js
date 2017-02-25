@@ -18,7 +18,7 @@ module.exports = {
    ***************************************************************************/
 
   models: {
-    connection: 'myManga',
+    connection: 'myMongoDbObject',
     migrate: 'alter'
   }
 
