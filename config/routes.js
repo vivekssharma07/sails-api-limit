@@ -46,9 +46,10 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'post /create'                         : 'IpsumController.create',
-  'get /find'                           : 'IpsumController.getAllInfo',
-  'post /findOne'                        : 'IpsumController.getElementByName',
-  'put  /update'                         : 'IpsumController.updateElementByName',
-  'delete /delete'                       : 'IpsumController.deleteElementByName'
+  'post /create': 'UserController.create',
+  'get /find': 'UserController.getAllInfo',
+  'get /findJobs': 'UserController.getAllJobInfo',
+  'post /findOne': 'UserController.getElementByName',
+  'put  /update': 'UserController.updateElementByName',
+  'delete /delete': 'UserController.deleteElementByName'
 };

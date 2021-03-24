@@ -29,8 +29,10 @@ module.exports.connections = {
   *                                                                          *
   ***************************************************************************/
   localDiskDb: {
-    adapter: 'sails-disk'
+    adapter: 'sails-mongo',
+    url: 'mongodb://localhost:27017/test',
   },
+
 
   /***************************************************************************
   *                                                                          *
@@ -56,14 +58,14 @@ module.exports.connections = {
   * Run: npm install sails-mongo                                             *
   *                                                                          *
   ***************************************************************************/
-  myMongoDbObject: {
-    adapter: 'sails-mongo',
-    host: 'localhost',
+  /* myMongoDbObject: {
+    adapter: 'sails-mongodb',
+    host: 'cluster0.wemqu.mongodb.net',
     port: 27017,
-    user: '',
-    password: '',
-    database: 'myDb'
-  }
+    user: 'root',
+    password: 'Vivek07$',
+    database: 'user-listing'
+  } */
 
   /***************************************************************************
   *                                                                          *
