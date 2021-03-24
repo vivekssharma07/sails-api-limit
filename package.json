@@ -2,7 +2,7 @@
   "name": "vivek",
   "private": true,
   "version": "0.0.0",
-  "description": "API hit limit",
+  "description": "API hit limit per second validation",
   "keywords": [],
   "dependencies": {
     "axios": "^0.21.1",
@@ -36,7 +36,7 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/anonymous node/sails user/testit.git"
+    "url": "https://github.com/vivekssharma07/sails-api-limit.git"
   },
   "author": "Vivek Sharma",
   "license": ""
