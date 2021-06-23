@@ -2,7 +2,20 @@ const axios = require("axios");
 const redis = require("redis");
 const moment = require("moment");
 const redisPort = 6379
-const redisClient = redis.createClient(redisPort);
+const redisClient = redis.createClient({
+  host: "127.0.0.1",
+  port: 6379,
+  no_ready_check: true,
+  auth_pass: "sharma"
+})
+
+redisClient.on('connect', (res) => {
+  console.log("Connection Established", res)
+})
+
+redisClient.on('error', (err) => {
+  console.log("Errror ", err)
+})
 const WINDOW_SIZE_IN_SECONDS = 5; //Time duration per window
 const MAX_WINDOW_REQUEST_COUNT_ADMIN = 6; //Admin can hit 6 API's per 5sec
 const MAX_WINDOW_REQUEST_COUNT_EMPLOYEE = 5; //Employee can hit 5 API's per 5sec 
@@ -67,8 +80,8 @@ module.exports.http = {
     customRedisRateLimiter: (req, res, next) => {
 
       try {
-        if(!req.url.includes('/findJobs')) {
-            return next()
+        if (!req.url.includes('/findJobs')) {
+          return next()
         }
 
         // check that redis client exists
@@ -125,8 +138,8 @@ module.exports.http = {
               //  if interval has passed, log new entry for current user and timestamp
               redisClient.flushdb(function (err, succeeded) {
                 // Will be true if successfull
-                console.log(succeeded); 
-               return next();
+                console.log(succeeded);
+                return next();
               })
             }
           }
